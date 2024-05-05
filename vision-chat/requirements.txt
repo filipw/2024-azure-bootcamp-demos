@@ -1,0 +1,5 @@
+promptflow==1.9.0
+promptflow[executable]
+promptflow-tools
+azure.search.documents
+beautifulsoup4

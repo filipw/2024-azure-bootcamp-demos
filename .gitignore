@@ -7,3 +7,4 @@ __pycache__
 .promptflow
 !.promptflow/flow.tools.json
 .runs
+vision-app
