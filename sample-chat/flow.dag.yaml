@@ -1,0 +1,61 @@
+$schema: https://azuremlschemas.azureedge.net/promptflow/latest/Flow.schema.json
+environment:
+  python_requirements_txt: requirements.txt
+inputs:
+  chat_history:
+    type: list
+    is_chat_history: true
+    default: []
+  question:
+    type: string
+    is_chat_input: true
+    default: do you have a ball that matches my uniform?
+  user_id:
+    type: int
+    default: 1
+    is_chat_input: false
+    is_chat_history: false
+  image:
+    type: image
+    optional: true
+    default: ../images/football-uniform-flamingo.jpg
+outputs:
+  answer:
+    type: string
+    reference: ${Azure_OpenAI_GPT_4_Turbo_with_Vision_fpen.output}
+    is_chat_output: true
+nodes:
+- name: fetch_user_data
+  type: python
+  source:
+    type: code
+    path: fetch_user_data.py
+  inputs:
+    user_id: ${inputs.user_id}
+- name: do_search
+  type: python
+  source:
+    type: code
+    path: do_search.py
+  inputs:
+    question: ${inputs.question}
+    index_name: rag-florence2
+    search: ai_search_connection
+    vision: vision_connection
+    image: ${inputs.image}
+- name: Azure_OpenAI_GPT_4_Turbo_with_Vision_fpen
+  type: custom_llm
+  source:
+    type: package_with_prompt
+    tool: promptflow.tools.aoai_gpt4v.AzureOpenAI.chat
+    path: chat_with_vision.jinja2
+  inputs:
+    connection: open_ai_connection
+    deployment_name: gpt4-vision-preview
+    max_tokens: 256
+    temperature: 0.7
+    image_input: ${inputs.image}
+    documentation: ${do_search.output}
+    chat_history: ${inputs.chat_history}
+    question: ${inputs.question}
+    username: ${fetch_user_data.output}
