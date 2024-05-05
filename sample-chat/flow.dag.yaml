@@ -32,6 +32,14 @@ nodes:
     path: fetch_user_data.py
   inputs:
     user_id: ${inputs.user_id}
+- name: vectorize_image
+  type: python
+  source:
+    type: code
+    path: vectorize_image.py
+  inputs:
+    vision: vision_connection
+    image: ${inputs.image}
 - name: do_search
   type: python
   source:
@@ -41,8 +49,7 @@ nodes:
     question: ${inputs.question}
     index_name: rag-florence2
     search: ai_search_connection
-    vision: vision_connection
-    image: ${inputs.image}
+    image_vector: ${vectorize_image.output}
 - name: Azure_OpenAI_GPT_4_Turbo_with_Vision_fpen
   type: custom_llm
   source:
