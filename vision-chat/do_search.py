@@ -30,6 +30,7 @@ def do_search(
         vector_queries = [VectorizedQuery(vector=image_vector, k_nearest_neighbors=3, fields="image_vector")]
 
     results = search_client.search(  
+        top=5,
         search_text=question,  
         vector_queries=vector_queries,
         select=["description", "filepath"],
@@ -37,7 +38,8 @@ def do_search(
     
     docs = [
         {
-            "description": doc["description"]
+            "description": doc["description"],
+            "score": doc["@search.score"]
         }
         for doc in results
     ]
