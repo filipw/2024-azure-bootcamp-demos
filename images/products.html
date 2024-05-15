@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Grid by Category</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f4f4f4;
+        }
+        .category-section {
+            margin: 20px;
+            border-bottom: 2px solid #ccc; /* Horizontal delimiter */
+        }
+        .category-title {
+            padding: 10px 20px;
+            font-size: 24px;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        .product-item {
+            background: white;
+            border: 1px solid #ddd;
+            padding: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .product-image {
+            width: 100%;
+            height: 200px; /* Increased height for better visibility */
+            background-size: cover;
+            background-position: center;
+        }
+        .product-name, .product-price {
+            text-align: center;
+            padding: 8px 0;
+        }
+    </style>
+</head>
+<body>
+
+<script>
+    async function fetchProducts() {
+        try {
+            const response = await fetch('metadata_structured.json'); // Path to your JSON file
+            const products = await response.json();
+            const categories = {};
+
+            // Organize products by category
+            products.forEach(product => {
+                if (!categories[product.category]) {
+                    categories[product.category] = [];
+                }
+                categories[product.category].push(product);
+            });
+
+            Object.keys(categories).forEach(category => {
+                const section = document.createElement('section');
+                section.className = 'category-section';
+
+                const title = document.createElement('h2');
+                title.className = 'category-title';
+                title.textContent = category;
+                section.appendChild(title);
+
+                const grid = document.createElement('div');
+                grid.className = 'product-grid';
+
+                categories[category].forEach(product => {
+                    const item = document.createElement('div');
+                    item.className = 'product-item';
+                    item.innerHTML = `
+                        <div class="product-image" style="background-image: url('${product.image_blob_path}');"></div>
+                        <div class="product-name">${product.name}</div>
+                        <div class="product-price">${product.price}</div>
+                    `;
+                    grid.appendChild(item);
+                });
+
+                section.appendChild(grid);
+                document.body.appendChild(section);
+            });
+        } catch (error) {
+            console.error('Failed to fetch products:', error);
+        }
+    }
+
+    window.onload = fetchProducts;
+</script>
+</body>
+</html>

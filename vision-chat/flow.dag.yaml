@@ -60,7 +60,7 @@ nodes:
     connection: open_ai_connection
     deployment_name: gpt4-vision-preview
     max_tokens: 256
-    temperature: 0.7
+    temperature: 0
     image_input: ${inputs.image}
     documentation: ${do_search.output}
     chat_history: ${inputs.chat_history}

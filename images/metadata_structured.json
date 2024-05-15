@@ -1,0 +1,134 @@
+[
+    {
+        "image_blob_path": "basketball.jpg",
+        "name": "Standard Basketball",
+        "category": "Basketballs",
+        "price": "$30"
+    },
+    {
+        "image_blob_path": "football.jpg",
+        "name": "Pro Touch Football",
+        "category": "Footballs",
+        "price": "$45"
+    },
+    {
+        "image_blob_path": "soccerball.jpg",
+        "name": "Club Match Soccer Ball",
+        "category": "Soccer balls",
+        "price": "$40"
+    },
+    {
+        "image_blob_path": "baseball.jpg",
+        "name": "Pro League Baseball",
+        "category": "Other balls",
+        "price": "$25"
+    },
+    {
+        "image_blob_path": "volleyball.jpg",
+        "name": "Beach Pro Volleyball",
+        "category": "Other balls",
+        "price": "$35"
+    },
+    {
+        "image_blob_path": "golfball.jpg",
+        "name": "Tour Precision Golf Ball",
+        "category": "Other balls",
+        "price": "$20"
+    },
+    {
+        "image_blob_path": "tennisball.jpg",
+        "name": "Championship Tennis Ball",
+        "category": "Other balls",
+        "price": "$15"
+    },
+    {
+        "image_blob_path": "basketball-unicorn.jpg",
+        "name": "Rainbow Unicorn Basketball",
+        "category": "Basketballs",
+        "price": "$50"
+    },
+    {
+        "image_blob_path": "pingpongball.jpg",
+        "name": "Highlighter Yellow Ping Pong Ball",
+        "category": "Other balls",
+        "price": "$10"
+    },
+    {
+        "image_blob_path": "football-flamingo.jpg",
+        "name": "Flamingo Pattern Football",
+        "category": "Footballs",
+        "price": "$55"
+    },
+    {
+        "image_blob_path": "basketball-beach.jpg",
+        "name": "Beach Vibes Basketball",
+        "category": "Basketballs",
+        "price": "$55"
+    },
+    {
+        "image_blob_path": "football-africa.jpg",
+        "name": "Safari Adventure Soccer Ball",
+        "category": "Soccer balls",
+        "price": "$60"
+    },
+    {
+        "image_blob_path": "baseball-pizza.jpg",
+        "name": "Pizza Lovers Baseball",
+        "category": "Other balls",
+        "price": "$30"
+    },
+    {
+        "image_blob_path": "basketball-forest.jpg",
+        "name": "Forest Pattern Basketball",
+        "category": "Basketballs",
+        "price": "$50"
+    },
+    {
+        "image_blob_path": "basketball-emoji.jpg",
+        "name": "Angry Emoji Soccer Ball",
+        "category": "Soccer balls",
+        "price": "$45"
+    },
+    {
+        "image_blob_path": "tennisball-broccoli.jpg",
+        "name": "Broccoli Pattern Tennis Ball",
+        "category": "Other balls",
+        "price": "$20"
+    },
+    {
+        "image_blob_path": "football-cheese.jpg",
+        "name": "Cheese and Sausage Football",
+        "category": "Footballs",
+        "price": "$55"
+    },
+    {
+        "image_blob_path": "basketball-uniform-beach.jpg",
+        "name": "Sunset Beach Basketball Kit",
+        "category": "Uniforms",
+        "price": "$75"
+    },
+    {
+        "image_blob_path": "basketball-uniform-flamingo.jpg",
+        "name": "Tropical Flamingo Basketball Gear",
+        "category": "Uniforms",
+        "price": "$75"
+    },
+    {
+        "image_blob_path": "football-uniform-flamingo.jpg",
+        "name": "Pink Flamingo Football Kit",
+        "category": "Uniforms",
+        "price": "$85"
+    },
+    {
+        "image_blob_path": "basketball-uniform-emoji.jpg",
+        "name": "Angry Emoticon Basketball Set",
+        "category": "Uniforms",
+        "price": "$70"
+    },
+    {
+        "image_blob_path": "soccer-uniform-africa.jpg",
+        "name": "Jungle Safari Soccer Kit",
+        "category": "Uniforms",
+        "price": "$90"
+    }
+]
